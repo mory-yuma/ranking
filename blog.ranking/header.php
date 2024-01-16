@@ -12,19 +12,27 @@
 
 <body>
   <header id="header">
-    <?php $html_tag = (is_home() || is_front_page()) ? 'h1' : 'div'; ?>
-    <<?php echo $html_tag; ?> class="site-title wrapper">
+    <!-- これの意味が理解できていない↓ -->
+    <!-- <?php $html_tag = (is_home() || is_front_page()) ? 'h1' : 'div'; ?>
+    <<?php echo $html_tag; ?> class="site-title wrapper"> -->
       <a href="<?php echo esc_url(home_url()); ?>">
-        <img src="<?php echo esc_url(get_theme_file_uri('img/common/logo.svg')); ?>" alt="Travel Blog">
+        <img src="<?php echo esc_url(get_theme_file_uri('img/common/logo.svg')); ?>" alt="みんなのブログランキング">
       </a>
     </<?php echo $html_tag; ?>>
 
     <nav id="navi">
-      <ul class="wrapper">
+      <!-- <ul class="wrapper">
         <li><a href="<?php echo esc_url(home_url('/category/news/')); ?>">NEWS</a></li>
         <li><a href="<?php echo esc_url(home_url('/category/column/')); ?>">COLUMN</a></li>
         <li><a href="<?php echo esc_url(home_url('/category/hotel/')); ?>">HOTEL</a></li>
         <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">CONTACT</a></li>
-      </ul>
+      </ul> -->
+      <?php
+		// $args = array(
+		// 	'menu_class' => 'nav navbar-nav',
+		// 	'container' => false,
+		// );
+		wp_nav_menu($args);
+		?>
     </nav>
   </header>

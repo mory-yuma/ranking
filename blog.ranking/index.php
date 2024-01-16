@@ -2,7 +2,29 @@
 
 <div id="container" class="wrapper">
   <main>
-    <?php if(have_posts()): ?>
+    <div class="ranking_image">
+      <!-- 使い分け方がわからない↓ -->
+      <img src="<?php echo esc_url(get_theme_file_uri('img/common/main.jpg'))?>" alt="みんなのブログランキング">
+      <img src="<?php echo esc_url(get_template_directory_uri() . '/img/common/main.jpg'); ?>" alt="みんなのブログランキング">
+    </div>
+    <p class="">みんなのブログランキング(みんブロ)では、独自に算出したみんブロスコアに基づいて登録サイトのランキングを決定しています。みんブロスコアは、ドメインの強さ(ドメインパワー)だけでなく、ドメイン取得日などの指標を組み合わせた独自アルゴリズムによって算出しています(毎週土曜日更新！)。</p>
+    <div class="スライダー">
+
+    </div>
+    <h2>みんブロ総合ランキング</h2>
+    <h2>
+      <span class="ribon1">ランキングTOP3</span>
+    </h2>
+    <div class="top1"></div>
+    <div class="top2"></div>
+    <div class="top3"></div>
+    <h2>
+      <span class="ribon2">ランキング4~10位</span>
+    </h2>
+    <table id="ranking">
+      <tbody></tbody>
+    </table>
+    <!-- <?php if(have_posts()): ?>
       <?php while(have_posts()):the_post(); ?>
         <?php
           $cat = get_the_category();
@@ -35,7 +57,16 @@
           pagination($wp_query->max_num_pages);
         }
       ?>
-    <?php endif; ?>
+    <?php endif; ?> -->
+    <?php get_search_form(); ?>
+    <table class="banners">
+      <tbody>
+        <tr>
+          <td><a href=""></a></td>
+          <td><a href=""></a></td>
+        </tr>
+      </tbody>
+    </table>
   </main>
   <?php get_sidebar(); ?>
 </div>
