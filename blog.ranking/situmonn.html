@@ -1,0 +1,26 @@
+<!-- 
+
+・解決したいこと：
+PV数をもとに記事を表示することができたが、一番最初に作った記事だけが
+閲覧すると４カウント上がり、閲覧してるわけでもないのに勝手に３カウントされる。
+
+その他記事は正常に閲覧した分だけ１カウントされます。
+下の記事をカウントするコードはsingle.phpにしかコピペしていません。
+<?php
+if(function_exists('setPostViews')){
+    setPostViews(get_the_ID());
+}
+?>
+
+
+https://into-the-program.com/popular-posts-without-plugin/
+・上記のサイトをもとにPV数に基づいたランキングを表示しました。
+
+１.index.php 表示先
+2.functions.php
+3.single.php
+
+・上記三つのファイルの『ここからPV数』というコメントアウトの下に
+サイトを元にしたコードをコピペしてます。
+
+ -->

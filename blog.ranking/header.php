@@ -17,5 +17,6 @@
       <?php the_custom_logo(); ?>
       <?php endif; ?>
     </div>
+    <a href="<?php echo esc_url(home_url()); ?>">ホーム</a>
     <nav id="navi"><?php wp_nav_menu();?></nav>
   </header>
