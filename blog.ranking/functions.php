@@ -10,7 +10,6 @@ add_theme_support('post-thumbnails');
 // ↓メニュー有効化コード
 add_theme_support('menus');
 
-// <?php
 /* カスタムロゴの機能を追加します */
 function add_custom_logo_support() {
   add_theme_support( 'custom-logo', array(
@@ -23,4 +22,32 @@ function add_custom_logo_support() {
   ) );
 }
 add_action( 'after_setup_theme', 'add_custom_logo_support' );
-// ?>
+
+
+// ここからPV数
+
+//カスタムフィールドの「post_views_count」にアクセス数を保存する
+function setPostViews($post_id) {
+  $count_key = 'post_views_count';
+  $count = get_post_meta($post_id, $count_key, true);
+  if($count==''){
+      $count = 0;
+      delete_post_meta($post_id, $count_key);
+      add_post_meta($post_id, $count_key, '0');
+  }else{
+      $count++;
+      update_post_meta($post_id, $count_key, $count);
+  }
+}
+
+//カスタムフィールドに保存されているアクセス数を取得する
+function getPostViews($post_id){
+  $count_key = 'post_views_count';
+  $count = get_post_meta($post_id, $count_key, true);
+  if($count==''){
+      delete_post_meta($post_id, $count_key);
+      add_post_meta($post_id, $count_key, '0');
+      return "0 View";
+  }
+      return $count.' Views';
+}

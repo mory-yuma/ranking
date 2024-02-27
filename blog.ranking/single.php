@@ -1,5 +1,11 @@
 <?php get_header(); ?>
-
+<!-- ここからPV数 -->
+<?php
+if(function_exists('setPostViews')){
+    setPostViews(get_the_ID());
+}
+?>
+<!-- ここまで -->
 <div id="container" class="wrapper">
   <main>
     <?php if(have_posts()):while(have_posts()):the_post(); ?>
